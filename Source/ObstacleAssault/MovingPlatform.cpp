@@ -18,6 +18,8 @@ void AMovingPlatform::BeginPlay()
 
 	StartLocation = GetActorLocation();
 
+	UE_LOG(LogTemp, Display, TEXT("Your message"));
+
 }
 
 // Called every frame
@@ -25,6 +27,11 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MovePlatform(DeltaTime);
+	RotatePlatform(DeltaTime);
+}
+
+void AMovingPlatform::MovePlatform(float DeltaTime) {
 	FVector CurrentLocation = GetActorLocation();
 	CurrentLocation = CurrentLocation + (PlatformVelocity * DeltaTime);
 	SetActorLocation(CurrentLocation);
@@ -39,3 +46,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 	}
 }
 
+void AMovingPlatform::RotatePlatform(float DeltaTime) {
+	FString Name = GetName();
+	UE_LOG(LogTemp, Display, TEXT("Rotating: %s"), *Name);
+}
