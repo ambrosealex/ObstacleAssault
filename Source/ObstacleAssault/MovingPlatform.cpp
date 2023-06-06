@@ -18,7 +18,7 @@ void AMovingPlatform::BeginPlay()
 
 	StartLocation = GetActorLocation();
 
-	UE_LOG(LogTemp, Display, TEXT("Your message"));
+	UE_LOG(LogTemp, Display, TEXT("Move Distance: %f"), MaxDistance);
 
 }
 
@@ -48,5 +48,4 @@ void AMovingPlatform::MovePlatform(float DeltaTime) {
 
 void AMovingPlatform::RotatePlatform(float DeltaTime) {
 	FString Name = GetName();
-	UE_LOG(LogTemp, Display, TEXT("Rotating: %s"), *Name);
 }
